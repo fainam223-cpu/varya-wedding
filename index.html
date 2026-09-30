@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Вари 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- АУДИО ПЛЕЕР (скрытый) -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Твой браузер не поддерживает аудио.
+    </audio>
+
+    <!-- КНОПКА ЗВУКА (только на первом экране визуально, но работает глобально) -->
+    <!-- Размещаем её фиксированно в углу, чтобы она была видна всегда, но стилизуем так, будто она часть первого слайда -->
+    <button class="sound-toggle-btn" id="soundBtn" onclick="toggleSound()">
+        <span class="icon-sound-on">🔊</span>
+        <span class="icon-sound-off hidden">🔇</span>
+    </button>
+
+    <!-- Декоративная рамка по углам -->
+    <div class="frame-corner frame-tl">
+        <svg viewBox="0 0 200 200" class="corner-svg">
+            <g transform="translate(100,100)">
+                <g fill="#F4D03F" opacity="0.9">
+                    <rect x="-8" y="-90" width="16" height="40" rx="8"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(30)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(60)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(90)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(120)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(150)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(180)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(210)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(240)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(270)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(300)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(330)"/>
+                </g>
+                <circle r="35" fill="#F9E79F"/>
+                <circle r="25" fill="#F4D03F"/>
+                <circle cx="-8" cy="-5" r="3" fill="#7D6608"/>
+                <circle cx="8" cy="-5" r="3" fill="#7D6608"/>
+                <path d="M -10 8 Q 0 15 10 8" stroke="#7D6608" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g fill="#D8BFD8" opacity="0.8">
+                <circle cx="30" cy="170" r="8"/>
+                <circle cx="20" cy="160" r="6"/>
+                <circle cx="40" cy="165" r="5"/>
+                <circle cx="170" cy="30" r="7"/>
+                <circle cx="160" cy="40" r="5"/>
+            </g>
+            <path d="M 10 190 Q 50 170 90 190" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+            <path d="M 190 10 Q 170 50 190 90" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+        </svg>
+    </div>
+
+    <div class="frame-corner frame-tr">
+        <svg viewBox="0 0 200 200" class="corner-svg">
+            <g transform="translate(100,100)">
+                <g fill="#F4D03F" opacity="0.9">
+                    <rect x="-8" y="-90" width="16" height="40" rx="8"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(30)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(60)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(90)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(120)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(150)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(180)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(210)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(240)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(270)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(300)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(330)"/>
+                </g>
+                <circle r="35" fill="#F9E79F"/>
+                <circle r="25" fill="#F4D03F"/>
+                <circle cx="-8" cy="-5" r="3" fill="#7D6608"/>
+                <circle cx="8" cy="-5" r="3" fill="#7D6608"/>
+                <path d="M -10 8 Q 0 15 10 8" stroke="#7D6608" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g fill="#D8BFD8" opacity="0.8">
+                <circle cx="170" cy="170" r="8"/>
+                <circle cx="180" cy="160" r="6"/>
+                <circle cx="30" cy="30" r="7"/>
+                <circle cx="40" cy="40" r="5"/>
+            </g>
+            <path d="M 190 190 Q 150 170 110 190" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+            <path d="M 10 10 Q 30 50 10 90" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+        </svg>
+    </div>
+
+    <div class="frame-corner frame-bl">
+        <svg viewBox="0 0 200 200" class="corner-svg">
+            <g transform="translate(100,100)">
+                <g fill="#F4D03F" opacity="0.9">
+                    <rect x="-8" y="-90" width="16" height="40" rx="8"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(30)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(60)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(90)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(120)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(150)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(180)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(210)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(240)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(270)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(300)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(330)"/>
+                </g>
+                <circle r="35" fill="#F9E79F"/>
+                <circle r="25" fill="#F4D03F"/>
+                <circle cx="-8" cy="-5" r="3" fill="#7D6608"/>
+                <circle cx="8" cy="-5" r="3" fill="#7D6608"/>
+                <path d="M -10 8 Q 0 15 10 8" stroke="#7D6608" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g fill="#D8BFD8" opacity="0.8">
+                <circle cx="30" cy="30" r="8"/>
+                <circle cx="170" cy="170" r="7"/>
+                <circle cx="160" cy="160" r="5"/>
+            </g>
+            <path d="M 10 10 Q 50 30 90 10" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+            <path d="M 190 190 Q 170 150 190 110" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+        </svg>
+    </div>
+
+    <div class="frame-corner frame-br">
+        <svg viewBox="0 0 200 200" class="corner-svg">
+            <g transform="translate(100,100)">
+                <g fill="#F4D03F" opacity="0.9">
+                    <rect x="-8" y="-90" width="16" height="40" rx="8"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(30)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(60)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(90)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(120)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(150)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(180)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(210)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(240)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(270)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(300)"/>
+                    <rect x="-8" y="-90" width="16" height="40" rx="8" transform="rotate(330)"/>
+                </g>
+                <circle r="35" fill="#F9E79F"/>
+                <circle r="25" fill="#F4D03F"/>
+                <circle cx="-8" cy="-5" r="3" fill="#7D6608"/>
+                <circle cx="8" cy="-5" r="3" fill="#7D6608"/>
+                <path d="M -10 8 Q 0 15 10 8" stroke="#7D6608" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g fill="#D8BFD8" opacity="0.8">
+                <circle cx="170" cy="30" r="8"/>
+                <circle cx="30" cy="170" r="7"/>
+                <circle cx="40" cy="160" r="5"/>
+            </g>
+            <path d="M 190 10 Q 150 30 110 10" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+            <path d="M 10 190 Q 30 150 10 110" stroke="#C39BD3" stroke-width="3" fill="none" opacity="0.7"/>
+        </svg>
+    </div>
+
+    <!-- Орнаментальные линии -->
+    <div class="frame-line frame-top"></div>
+    <div class="frame-line frame-bottom"></div>
+    <div class="frame-line frame-left"></div>
+    <div class="frame-line frame-right"></div>
+
+    <!-- Бабочки -->
+    <div class="butterfly butterfly-1">🦋</div>
+    <div class="butterfly butterfly-2">🦋</div>
+
+    <!-- СЛАЙД 1: Обложка -->
+    <section class="screen active" id="screen1">
+        <div class="screen-content">
+            <div class="content-card fade-in">
+                <img src="images/cover.jpg" alt="Варя" class="main-photo">
+                <h1 class="magic-title">Варя, сегодня начинается самая красивая глава твоей жизни.</h1>
+                <p class="subtitle">Но прежде чем ты скажешь своё «да», давай на секунду оглянемся назад...</p>
+            </div>
+        </div>
+        <button class="arrow-btn" onclick="nextScreen()">
+            <span class="arrow-icon">❦</span>
+        </button>
+    </section>
+
+    <!-- СЛАЙД 2: Корни -->
+    <section class="screen" id="screen2">
+        <div class="screen-content">
+            <div class="content-card fade-in">
+                <h2 class="section-title">Там, где начинается твоё сердце</h2>
+                <div class="ornament-divider">✿ ❀ ✿</div>
+                <div class="photo-row-three">
+                    <div class="photo-card"><img src="images/family1.jpg" alt="Семья"></div>
+                    <div class="photo-card"><img src="images/family2.jpg" alt="Семья"></div>
+                    <div class="photo-card"><img src="images/family3.jpg" alt="Семья"></div>
+                </div>
+                <p class="wish-text">
+                    Твой свет, твоя эмпатия, твоя способность чувствовать этот мир — всё это от мамы и папы.<br><br>
+                    А твои первые секреты, защиты и совместные шалости навсегда остались в историях, которые знает только Савва.<br><br>
+                    Вы — фундамент всего самого прекрасного, что есть в тебе.
+                </p>
+            </div>
+        </div>
+        <button class="arrow-btn" onclick="nextScreen()">
+            <span class="arrow-icon">❦</span>
+        </button>
+    </section>
+
+    <!-- СЛАЙД 3: Наша связь -->
+    <section class="screen" id="screen3">
+        <div class="screen-content">
+            <div class="content-card fade-in">
+                <h2 class="section-title">Больше, чем просто сёстры</h2>
+                <div class="ornament-divider">✿ ❀ ✿</div>
+                <div class="photo-row-three">
+                    <div class="photo-card"><img src="images/us1.jpg" alt="Мы"></div>
+                    <div class="photo-card"><img src="images/us2.jpg" alt="Мы"></div>
+                    <div class="photo-card"><img src="images/us3.jpg" alt="Мы"></div>
+                </div>
+                <p class="wish-text">
+                    Помнишь наши ночёвки? В детстве мы могли до хрипоты спорить, с кем из мягких игрушек спать, а потом разбирали их и до утра придумывали им целые истории.<br><br>
+                    Мы взрослели. Игрушки сменились на карты Таро и гадания на музыке. Мы делились самыми сокровенными секретами, разбирали до слёз и до смеха все проблемы, искали решения и просто были друг для друга целым миром.<br><br>
+                    Ты — моя родная душа. Моя сестра, моя лучшая подруга, мой человек. Я всегда на твоей стороне. 💜
+                </p>
+            </div>
+        </div>
+        <button class="arrow-btn" onclick="nextScreen()">
+            <span class="arrow-icon">❦</span>
+        </button>
+    </section>
+
+    <!-- СЛАЙД 4: Их история -->
+    <section class="screen" id="screen4">
+        <div class="screen-content">
+            <div class="content-card fade-in">
+                <h2 class="section-title">Момент, когда пазл сложился</h2>
+                <div class="ornament-divider">✿ ❀ </div>
+                <div class="single-photo-wrapper">
+                    <img src="images/couple.jpg" alt="Варя и Ваня" class="single-photo">
+                </div>
+                <p class="wish-text">
+                    Жизнь в университете подарила тебе встречу с Ваней.<br><br>
+                    Я не буду писать долгих историй, потому что главное я и так вижу: я вижу, как ты светишься.<br><br>
+                    Ваня, береги нашу Варю. Она умеет чувствовать этот мир глубже, чем кто-либо, и теперь она доверила своё сердце тебе.<br><br>
+                    Пусть ваша совместная дорога будет лёгкой, уютной и полной любви. 🤍
+                </p>
+            </div>
+        </div>
+        <button class="arrow-btn" onclick="nextScreen()">
+            <span class="arrow-icon">❦</span>
+        </button>
+    </section>
+
+    <!-- СЛАЙД 5: Финал -->
+    <section class="screen" id="screen5">
+        <div class="screen-content">
+            <div class="content-card fade-in final-card">
+                <div class="single-photo-wrapper">
+                    <img src="images/final.jpg" alt="Финал" class="single-photo">
+                </div>
+                <h2 class="section-title">Мои слова тебе, моя сестрёнка</h2>
+                <div class="ornament-divider">✿ ❀ ✿</div>
+                <p class="wish-text">
+                    Я не буду желать вам банального «счастья», потому что вы уже умеете его создавать.<br><br>
+                    Я желаю вам бережности. Берегите друг друга в мелочах. Сохраняйте эту искру, даже когда будете просто выбирать, какой фильм посмотреть в пятницу вечером.<br><br>
+                    Пусть ваш дом всегда будет местом, куда хочется возвращаться.<br><br>
+                    Я люблю тебя бесконечно. С днём вашей свадьбы! 🤍
+                </p>
+                <button class="back-to-top-btn" onclick="scrollToTop()">
+                    <span>↑ В начало</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
